@@ -12,6 +12,9 @@
 /* Utility classes */
 @import './styles/utilities.css';
 
+/* Toast notifications */
+@import './styles/toast.css';
+
 /* Tailwind directives */
 @tailwind base;
 @tailwind components;
