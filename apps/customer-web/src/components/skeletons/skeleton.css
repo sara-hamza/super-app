@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Skeleton Loaders — Shimmer / Pulse Animation Styles
+   ========================================================================== */
+
+/* Base skeleton block */
+.skeleton {
+  background-color: var(--color-skeleton-base, #e5e7eb);
+  border-radius: var(--radius-sm, 4px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer animation (preferred) */
+.skeleton--shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Pulse animation (fallback for reduced-motion) */
+.skeleton--pulse {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton--shimmer::after {
+    animation: none;
+  }
+  .skeleton--pulse {
+    animation: none;
+  }
+}
+
+/* Skeleton variant sizes */
+.skeleton--text {
+  height: 1em;
+  margin-bottom: 0.5em;
+  border-radius: var(--radius-xs, 2px);
+}
+
+.skeleton--text:last-child {
+  width: 80%;
+}
+
+.skeleton--circle {
+  border-radius: 50%;
+}
+
+.skeleton--rounded {
+  border-radius: var(--radius-md, 8px);
+}
+
+.skeleton--rect {
+  border-radius: var(--radius-sm, 4px);
+}
