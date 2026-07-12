@@ -15,6 +15,9 @@
 /* Toast notifications */
 @import './styles/toast.css';
 
+/* Skeleton loader styles */
+@import './components/skeletons/skeleton.css';
+
 /* Tailwind directives */
 @tailwind base;
 @tailwind components;
